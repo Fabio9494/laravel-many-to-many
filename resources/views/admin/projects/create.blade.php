@@ -72,6 +72,19 @@
                             @enderror
                         </select>
                     </div>
+                    <div class="form-group my-3">
+                        <label class="control-label">Selziona</label>
+                        <div>
+                            @foreach ($technologies as $technology)
+                                <div class="form-check-inline">
+                                    <input type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}"
+                                        class="form-check-input" value="{{ $technology->id }}"
+                                        @checked(is_array(old('technologies')) && in_array($technology->id, old('technologies')))>
+                                    <label for="" class="form-check-label">{{ $technology->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
 
                     <div>
                         <button type="submit" class="btn btn-primary my-3">SALVA</button>
